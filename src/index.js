@@ -86,7 +86,7 @@ app.post("/todos", checksExistsUserAccount, (request, response) => {
 
   users[userIndex] = requestUser;
 
-  return response.status(200).json(requestUser.todos);
+  return response.status(201).json(newTodo);
 });
 
 app.put(
@@ -107,7 +107,7 @@ app.put(
     users[userIndex].todos[todoIndex].title = newTitle;
     users[userIndex].todos[todoIndex].deadline = new Date(newDeadline);
 
-    return response.status(200).json();
+    return response.status(200).json(users[userIndex].todos[todoIndex]);
   }
 );
 
